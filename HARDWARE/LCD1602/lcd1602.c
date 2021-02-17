@@ -5,12 +5,12 @@ void GPIO_Configuration(void)
 {
 	GPIO_InitTypeDef	GPIO_InitStructure;
 	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOD|RCC_APB2Periph_GPIOE,ENABLE);//使能PB,PD端口时钟
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB | RCC_APB2Periph_GPIOA|RCC_APB2Periph_GPIOE,ENABLE);//使能PB,PD端口时钟
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0|GPIO_Pin_1|GPIO_Pin_2|GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7|GPIO_Pin_11|GPIO_Pin_12;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	//推挽输出
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;	//IO口速度为50MHz
-	GPIO_Init(GPIOD, &GPIO_InitStructure);				//初始化GPIOD0~7
+	GPIO_Init(GPIOA, &GPIO_InitStructure);				//初始化GPIOD0~7
 
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_15|GPIO_Pin_14|GPIO_Pin_13|GPIO_Pin_8;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;	//推挽输出
@@ -26,14 +26,14 @@ void GPIO_Configuration(void)
 }
 void DATAOUT(u8 temp)	
 {
-	GPIO_WriteBit(GPIOD, GPIO_Pin_7, (temp>>7)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_6, (temp>>6)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_5, (temp>>5)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_4, (temp>>4)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_3, (temp>>3)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_2, (temp>>2)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_11, (temp>>1)&0x01);
-	GPIO_WriteBit(GPIOD, GPIO_Pin_12, (temp)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_7, (temp>>7)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_6, (temp>>6)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_5, (temp>>5)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_4, (temp>>4)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_3, (temp>>3)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_2, (temp>>2)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_1, (temp>>1)&0x01);
+	GPIO_WriteBit(GPIOA, GPIO_Pin_0, (temp)&0x01);
 }
 
 /* 等待液晶准备好 */

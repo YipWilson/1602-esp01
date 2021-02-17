@@ -3,7 +3,7 @@
 #include "stm32f10x_gpio.h"
 #include "timemodu.h"
 #include "lcd1602.h"
-#include "gizwits_product.h"
+//#include "gizwits_product.h"
 
 enum key_value
 {
@@ -111,7 +111,8 @@ u8 key_valuedefine(void)
 			ucKeycharatic=shortpress;
 			ucKeyValue=ucValuebak;
 			ucValuebak=nokey;
-		}	
+		}	
+
 		presstime=0;
 	}
 	
@@ -134,7 +135,7 @@ void key_deal(void)
 				LCD1602_Show_Str(2, 1, "key0    shortpress");
 				LCD1602_Show_Str(1, 1, "WIFI SOFTAP MODE");
 				BUZ_Application(5,30,1);
-				 gizwitsSetMode(WIFI_SOFTAP_MODE);
+				 //gizwitsSetMode(WIFI_SOFTAP_MODE);
 			}
 		break;
 		case key1:
@@ -148,7 +149,7 @@ void key_deal(void)
 				LCD1602_Show_Str(1, 1, "WIFI PRODUCTION TEST");
 				LCD1602_Show_Str(2, 1, "key1    shortpress");
 				BUZ_Application(5,30,1);
-				gizwitsSetMode(WIFI_PRODUCTION_TEST);
+				//gizwitsSetMode(WIFI_PRODUCTION_TEST);
 			}
 		break;
 		case key2:
@@ -157,7 +158,7 @@ void key_deal(void)
 				LCD1602_Show_Str(1, 1, "WIFI RESET MODE");
 				LCD1602_Show_Str(2, 1, "key2    longpress");
 				BUZ_Application(15,30,1);
-				gizwitsSetMode(WIFI_RESET_MODE);
+				//gizwitsSetMode(WIFI_RESET_MODE);
 			}
 			else if(ucKeycharatic==shortpress)
 			{
@@ -165,7 +166,7 @@ void key_deal(void)
 				LCD1602_Show_Str(2, 1, "key2    shortpress");
 				BUZ_Application(5,30,1);
 				LED1=1;
-				gizwitsSetMode(WIFI_AIRLINK_MODE);
+				//gizwitsSetMode(WIFI_AIRLINK_MODE);
 			}
 		break;
 		case key01:
