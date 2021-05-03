@@ -32,7 +32,7 @@ int main(void)
 	LCD1602_Show_Str(2, 1, "I LOVE YOU");
 	BUZ_Application(5,30,2);//开机声两声
 	
-////	ATcall();//配置esp01s
+	ATcall();//配置esp01s
 	while(1)
 	{
 		//===============时钟处理==================
