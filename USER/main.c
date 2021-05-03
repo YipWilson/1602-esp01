@@ -16,7 +16,7 @@ int main(void)
   	
 	delay_init();
 	NVIC_Configuration();
-	uart_init(9600);
+	uart_init(115200);
 	RTC_Init();	  			//RTC初始化
 	GPIO_Configuration();
 	LED_Init();
@@ -31,9 +31,10 @@ int main(void)
  	LCD1602_Show_Str(2, 1, "123");
 	LCD1602_Show_Str(2, 1, "I LOVE YOU");
 	BUZ_Application(5,30,2);//开机声两声
+	
+////	ATcall();//配置esp01s
 	while(1)
 	{
-		
 		//===============时钟处理==================
 		timemodu();
 		if(t!=calendar.sec)
@@ -55,7 +56,7 @@ int main(void)
 		//uart_deal();
 		if(1 == fg1scheck)
 		{
-				USART1_SendString(str);
+				//USART1_SendString(str);
 		}
 		//===============DH11处理====================
 		DHT11_Deal();

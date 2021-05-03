@@ -363,7 +363,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LCD1602;..\HARDWARE\TIMER;..\HARDWARE\key;..\HARDWARE\buzz;..\HARDWARE\Gizwits;..\HARDWARE\Utils;..\HARDWARE\RTC;..\HARDWARE\DHT11</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32F10x_FWLib\inc;..\HARDWARE\LED;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\HARDWARE\LCD1602;..\HARDWARE\TIMER;..\HARDWARE\key;..\HARDWARE\buzz;..\HARDWARE\Gizwits;..\HARDWARE\Utils;..\HARDWARE\RTC;..\HARDWARE\DHT11;..\HARDWARE\AT;..\HARDWARE\ATcall;..\HARDWARE\usart3</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -481,6 +481,16 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\DHT11\dht11.c</FilePath>
             </File>
+            <File>
+              <FileName>AT_ESP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\AT\AT_ESP.c</FilePath>
+            </File>
+            <File>
+              <FileName>ATcall.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\ATcall\ATcall.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -500,6 +510,11 @@
               <FileName>usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\SYSTEM\usart\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>bsp_usart3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\usart3\bsp_usart3.c</FilePath>
             </File>
           </Files>
         </Group>
