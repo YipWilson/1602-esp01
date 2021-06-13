@@ -57,6 +57,7 @@ int main(void)
 		if(1 == fg1scheck)
 		{
 				USART1_SendString(str);
+				Uploading(str);
 		}
 		//===============DH11¥¶¿Ì====================
 		DHT11_Deal();

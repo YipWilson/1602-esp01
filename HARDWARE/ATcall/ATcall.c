@@ -13,8 +13,8 @@ extern char ESPBuffer[128];
 char wifi_name[] = "YW1302";
 char wifi_pass[] = "yyxwst1302";
 
-char server_ip[] = "服务器ip";
-char server_port[] = "服务器端口";
+char server_ip[] = "192.168.3.5";
+char server_port[] = "8080";
 
 
 
