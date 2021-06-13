@@ -14,22 +14,22 @@ const char SendResponse[] = "OK\r\n";
 
 
 //用中断接收ESP的反馈信息
-void USART2_IRQHandler(void)
+void USART3_IRQHandler(void)
 {
-	if(USART_GetFlagStatus(USART2, USART_FLAG_ORE) != RESET)
+	if(USART_GetFlagStatus(USART3, USART_FLAG_ORE) != RESET)
 	{
-		USART_ReceiveData( USART2 );
-		USART_ClearITPendingBit(USART2,USART_IT_ORE);
+		USART_ReceiveData( USART3 );
+		USART_ClearITPendingBit(USART3,USART_IT_ORE);
 	}
-	if(USART_GetITStatus(USART2, USART_IT_RXNE) != RESET)
+	if(USART_GetITStatus(USART3, USART_IT_RXNE) != RESET)
 	{
 		if(ESPRxIndex < 128)
 		{
-			ESPBuffer[ESPRxIndex++] = USART_ReceiveData(USART2);
+			ESPBuffer[ESPRxIndex++] = USART_ReceiveData(USART3);
 		}
 		else
 		{
-			USART_ITConfig(USART2, USART_IT_RXNE, DISABLE);
+			USART_ITConfig(USART3, USART_IT_RXNE, DISABLE);
 		}
 	}
 }       

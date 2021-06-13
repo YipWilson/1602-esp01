@@ -8,9 +8,10 @@ void USART3_Config()
     GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
+	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	//使能USART3，GPIOB时钟
- 	USART_DeInit(USART3);  //复位串口3
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_USART3, ENABLE);
+	USART_DeInit(USART3);  //复位串口3
 	 //USART3_TX   PB.10
     GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10; //PB.10
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
@@ -23,9 +24,10 @@ void USART3_Config()
     GPIO_Init(GPIOB, &GPIO_InitStructure);  //初始化PB11
 
    //Usart3 NVIC 配置
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 
 	NVIC_InitStructure.NVIC_IRQChannel = USART3_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 2;
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
   

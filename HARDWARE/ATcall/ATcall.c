@@ -115,35 +115,35 @@ void ATcall(void)
 
 	delay_ms(1000);
 	//GUI_ShowCHinese(0,0,16,"程序加载中",1);
-	USART1_Info("等待程序加载完毕.....\r\n");
+	USART1_Info("loading.....\r\n");
 	delay_ms(1000);
 	//	OLED_Clear(0);             //清屏（全黑）
 	//GUI_ShowCHinese(0,0,16,"程序加载中",1);
-	USART1_Info("等待程序加载完毕.....\r\n");
+	USART1_Info("loading.....\r\n");
 	delay_ms(1000);
 	//	OLED_Clear(0);             //清屏（全黑）
 	//GUI_ShowCHinese(0,0,16,"程序加载中",1);
-	USART1_Info("等待程序加载完毕.....\r\n");		
+	USART1_Info("loading....\r\n");		
 		
 		
 	while(1)
 	{
 		//OLED_Clear(0);             //清屏（全黑）
 		//GUI_ShowCHinese(0,0,16,"检测模块",1);
-		USART1_Info("检测ESP01是否连接.....\r\n");
+		USART1_Info("check ESP01 connect.....\r\n");
 		if(!test.CheckESP()) //检测ESP01
 		{
 		//	GUI_ShowCHinese(0,0,16,"重新检测模块",1);
-			USART1_Info("未检测到ESP01.....\r\n");
+			USART1_Info("check no ESP01.....\r\n");
 			delay_ms(100);
-			USART1_Info("重新检测.\r\n");
+			USART1_Info("recheck.\r\n");
 			delay_ms(100);
 		//	OLED_Clear(0);             //清屏（全黑）
 			delay_ms(100);
 			
 		}
 		else{
-			USART1_Info("ESP01已连接.....\r\n");
+			USART1_Info("ESP01 is connect....\r\n");
 		//	OLED_Clear(0);             //清屏（全黑）
 		//	GUI_ShowCHinese(0,0,16,"已连接模块",1);
 			break;
